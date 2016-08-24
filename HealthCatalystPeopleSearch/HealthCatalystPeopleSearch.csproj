@@ -174,6 +174,10 @@
     <Compile Include="Migrations\201608201855447_AddTable.Designer.cs">
       <DependentUpon>201608201855447_AddTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608232310178_AddCityStateZip.cs" />
+    <Compile Include="Migrations\201608232310178_AddCityStateZip.Designer.cs">
+      <DependentUpon>201608232310178_AddCityStateZip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -235,6 +239,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608201855447_AddTable.resx">
       <DependentUpon>201608201855447_AddTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608232310178_AddCityStateZip.resx">
+      <DependentUpon>201608232310178_AddCityStateZip.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

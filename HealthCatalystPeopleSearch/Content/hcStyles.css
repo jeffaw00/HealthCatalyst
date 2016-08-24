@@ -213,6 +213,20 @@ footer {
 	margin: 0;
 }
 
+/*Overrides*/
+.override-modal {
+    position: static;
+}
+
+.col-centered {
+    display: inline-block; 
+    width: 300px;
+}
+
+.div-force-center {
+    text-align: center;
+}
+
 
 @media(min-width:768px) {
     .navbar-default {
