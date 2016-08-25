@@ -2,4 +2,81 @@
     ViewBag.Title = "Home Page";
 }
 
-<div></div>
+<section class="bg-primary" id="one">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                <h2 class="margin-top-0 text-primary">Begin Your Search</h2>
+                <br>
+                <div class="search-input-container">
+                    <input type="text" class="search-input tt-query" autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="two">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="margin-top-0 text-primary">Enter Person</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="div-force-center">
+        <div class="col-centered">
+            <form class="contact-form row ">
+                <div class="col-md-12">
+                    <label></label>
+                    <input type="text" class="form-control" placeholder="First Name">
+                </div>
+                <div class="col-md-12">
+                    <label></label>
+                    <input type="text" class="form-control" placeholder="Last Name">
+                </div>
+                <div class="col-md-12">
+                    <label></label>
+                    <input type="text" class="form-control" placeholder="Address">
+                </div>
+                <div class="col-md-12">
+                    <label></label>
+                    <input type="text" class="form-control" placeholder="City">
+                </div>
+                <div class="col-md-12">
+                    <label></label>
+                    <input type="text" class="form-control" placeholder="State">
+                </div>
+                <div class="col-md-12">
+                    <label></label>
+                    <input type="text" class="form-control" placeholder="Zip">
+                </div>
+                <div class="col-md-12">
+                    <label></label>
+                    <input type="text" class="form-control" placeholder="Age">
+                </div>
+                <div class="col-md-12">
+                    <label></label>
+                    <textarea class="form-control" rows="9" placeholder="Interests..."></textarea>
+                </div>
+                <div class="col-md-12">
+                    <label></label>
+                    <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Add Person <i class="ion-android-arrow-forward"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="container-fluid bg-dark" id="three">
+    <div class="row">
+        <div>
+            <h2 class="text-center text-primary">These are the People in the Database</h2>
+            <hr>
+            @Html.Action("PeopleGrid", "Home")
+        </div>
+        <div class="col-md-12">
+            <label></label>
+            <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Reseed <i class="ion-android-arrow-forward"></i></button>
+        </div>
+    </div>
+</section>
