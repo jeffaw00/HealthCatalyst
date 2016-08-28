@@ -31,4 +31,23 @@
        $('#galleryImage').attr("src",$(e.relatedTarget).data("src"));
     });
 
+    $('#loadPerson').click(function () {
+        var name = $('#personSearchBox').val();
+        $.ajax({
+            url: '/Home/LoadPerson',
+            type: 'GET',
+            cache: false,
+            data: { name: name },
+            success: function (data) {
+                $('#personResults').html(data);
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $("input[name='DeletePerson']").click(function () {
+            return confirm('Delete this person?');
+        });
+    });
+
 })(jQuery);

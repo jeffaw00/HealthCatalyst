@@ -167,6 +167,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,7 +180,6 @@
       <DependentUpon>201608232310178_AddCityStateZip.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Home.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Persons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -230,6 +230,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\PeopleGrid.cshtml" />
+    <Content Include="Views\Home\LoadPerson.cshtml" />
+    <Content Include="Views\Home\AddPerson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

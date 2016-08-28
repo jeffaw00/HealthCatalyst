@@ -13,6 +13,7 @@
                 <th>Age</th>
                 <th>Interests</th>
                 <th>Image Location</th>
+                <th></th>
             </tr>
         </thead>
         @if (Model.persons != null)
@@ -29,6 +30,11 @@
                     <td>@item.Age</td>
                     <td>@item.Interests</td>
                     <td>@item.PicLocation</td>
+                    <td>
+                        @{using (Html.BeginForm("DeletePerson", "Home", new { PersonId = @item.PersonId }))
+                        { <input class="delete-recolor" type="submit" name="DeletePerson" value="Delete" /> } 
+                        }
+                    </td>
                 </tr>
             }
         }

@@ -15,18 +15,70 @@ namespace HealthCatalystPeopleSearch.Services
         {
             Persons people = new Persons();
 
-            using (var conn = new SqlConnection(ConfigurationManager.AppSettings["PersonContext"]))
+            using (var context = new PersonContext())
             {
-                using (var context = new PersonContext())
-                {
-                    context.Database.Connection.Open();
-                    var query = from b in context.Persons
-                                select b;
-                    people.persons = query.ToList();
-                }
+                var query = from b in context.Persons
+                            select b;
+                people.persons = query.ToList();
             }
 
             return people;
+        }
+
+        public List<string> GetNames()
+        {
+            List<string> names = new List<string>();
+
+            using (var context = new PersonContext())
+            {
+                var query = from b in context.Persons
+                            select b.FirstName + " " + b.LastName;
+                names = query.ToList();
+            }
+
+            return names;
+        }
+
+        public Person GetPerson(string name)
+        {
+            Person person = new Person();
+
+            if (name != null)
+            {
+                using (var context = new PersonContext())
+                {
+                    var query = from b in context.Persons
+                                where b.FirstName + " " + b.LastName == name
+                                select b;
+                    person = (Person)query.First();
+                }
+            }
+
+            return person;
+        }
+
+        public Person AddPerson(Person person)
+        {
+            using (var context = new PersonContext())
+            {
+                context.Persons.Add(person);
+                context.SaveChanges();
+            }
+
+            return person;
+        }
+
+        public void DeletePerson(int PersonId)
+        {
+            using (var context = new PersonContext())
+            {
+                Person person = context.Persons.Find(PersonId);
+                if(person != null)
+                {
+                    context.Persons.Remove(person);
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }

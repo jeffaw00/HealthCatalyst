@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Health Catalyst Person Search";
 }
 
 <section class="bg-primary" id="one">
@@ -8,8 +8,13 @@
             <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
                 <h2 class="margin-top-0 text-primary">Begin Your Search</h2>
                 <br>
-                <div class="search-input-container">
-                    <input type="text" class="search-input tt-query" autocomplete="off" spellcheck="false">
+                <div class="search-input-container text-center">
+                    <input id="personSearchBox" type="text" class="search-input tt-query" autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+            <div class="div-force-center">
+                <div class="col-centered">
+                    <button id="loadPerson" type="button" data-toggle="modal" data-target="#viewModal" class="btn btn-primary btn-block btn-sm load-button">Load <i class="ion-android-arrow-forward"></i></button>
                 </div>
             </div>
         </div>
@@ -26,44 +31,7 @@
     </div>
     <div class="div-force-center">
         <div class="col-centered">
-            <form class="contact-form row ">
-                <div class="col-md-12">
-                    <label></label>
-                    <input type="text" class="form-control" placeholder="First Name">
-                </div>
-                <div class="col-md-12">
-                    <label></label>
-                    <input type="text" class="form-control" placeholder="Last Name">
-                </div>
-                <div class="col-md-12">
-                    <label></label>
-                    <input type="text" class="form-control" placeholder="Address">
-                </div>
-                <div class="col-md-12">
-                    <label></label>
-                    <input type="text" class="form-control" placeholder="City">
-                </div>
-                <div class="col-md-12">
-                    <label></label>
-                    <input type="text" class="form-control" placeholder="State">
-                </div>
-                <div class="col-md-12">
-                    <label></label>
-                    <input type="text" class="form-control" placeholder="Zip">
-                </div>
-                <div class="col-md-12">
-                    <label></label>
-                    <input type="text" class="form-control" placeholder="Age">
-                </div>
-                <div class="col-md-12">
-                    <label></label>
-                    <textarea class="form-control" rows="9" placeholder="Interests..."></textarea>
-                </div>
-                <div class="col-md-12">
-                    <label></label>
-                    <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Add Person <i class="ion-android-arrow-forward"></i></button>
-                </div>
-            </form>
+            @{Html.RenderPartial("AddPerson");}
         </div>
     </div>
 </section>

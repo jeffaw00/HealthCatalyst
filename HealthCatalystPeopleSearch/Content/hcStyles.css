@@ -227,6 +227,14 @@ footer {
     text-align: center;
 }
 
+.load-button {
+    margin-top: 15px;
+}
+
+.delete-recolor {
+    color: #000000;
+}
+
 
 @media(min-width:768px) {
     .navbar-default {

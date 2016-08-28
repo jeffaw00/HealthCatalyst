@@ -18,9 +18,29 @@ namespace HealthCatalystPeopleSearch.Controllers
 
         public ActionResult PeopleGrid()
         {
-            var people = _manager.GetAllPeople();
+            return PartialView(_manager.GetAllPeople());
+        }
 
-            return PartialView(people);
+        public ActionResult GetNames()
+        {
+            return Json(_manager.GetNames(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult LoadPerson(string name)
+        {
+            return PartialView(_manager.GetPerson(name));
+        }
+
+        public ActionResult AddPerson(Models.Person person)
+        {
+            _manager.AddPerson(person);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeletePerson(int PersonId)
+        {
+            _manager.DeletePerson(PersonId);
+            return RedirectToAction("Index");
         }
     }
 }
