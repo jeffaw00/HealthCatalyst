@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -86,6 +87,19 @@ namespace HealthCatalystPeopleSearch.Services
                 {
                     context.Persons.Remove(person);
                     context.SaveChanges();
+                }
+            }
+        }
+
+        public void Reseed()
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["PersonContext"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("spReseed", conn))
+                {
+                    cmd.Connection.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

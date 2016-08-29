@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201608232310178_AddCityStateZip.Designer.cs">
       <DependentUpon>201608232310178_AddCityStateZip.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608290054117_Requires.cs" />
+    <Compile Include="Migrations\201608290054117_Requires.Designer.cs">
+      <DependentUpon>201608290054117_Requires.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Home.cs" />
     <Compile Include="Models\Person.cs" />
@@ -191,6 +195,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\hcStyles.css" />
+    <Content Include="Content\Images\spinner.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -238,7 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -254,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608232310178_AddCityStateZip.resx">
       <DependentUpon>201608232310178_AddCityStateZip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608290054117_Requires.resx">
+      <DependentUpon>201608290054117_Requires.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

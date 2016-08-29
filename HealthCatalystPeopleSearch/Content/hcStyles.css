@@ -235,6 +235,18 @@ footer {
     color: #000000;
 }
 
+.field-validation-valid { 
+    display:none; 
+}
+
+.personResults {
+    display: none;
+}
+
+.waitModal {
+    display: block;
+}
+
 
 @media(min-width:768px) {
     .navbar-default {

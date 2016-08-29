@@ -12,7 +12,9 @@ namespace HealthCatalystPeopleSearch.Models
     {
         [Key]
         public int PersonId { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }

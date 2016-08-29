@@ -28,6 +28,7 @@ namespace HealthCatalystPeopleSearch.Controllers
 
         public ActionResult LoadPerson(string name)
         {
+            System.Threading.Thread.Sleep(3000);
             return PartialView(_manager.GetPerson(name));
         }
 
@@ -43,6 +44,21 @@ namespace HealthCatalystPeopleSearch.Controllers
         {
             _manager.DeletePerson(PersonId);
             return PartialView("PeopleGrid", _manager.GetAllPeople());
+        }
+
+        public ContentResult Reseed()
+        {
+            string result = string.Empty;
+            try
+            {
+                _manager.Reseed();
+                return Content("success");
+            }
+            catch(Exception ex)
+            {
+                // would normally log failure to mongo or other log db, then return
+                return Content("failed");
+            }
         }
     }
 }

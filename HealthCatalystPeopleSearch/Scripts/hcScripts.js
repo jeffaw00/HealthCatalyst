@@ -38,8 +38,30 @@
             type: 'GET',
             cache: false,
             data: { name: name },
-            success: function (data) {
-                $('#personResults').html(data);
+            beforeSend: function () {
+                $('#personResults').hide();
+                $('#loadingModal').show();
+            },
+            complete: function () {
+                $('#personResults').show();
+                $('#loadingModal').hide();
+            }
+        }).done(function (data) {
+            $('#personResults').html(data);
+        });
+    });
+
+    $('#reseedData').click(function () {
+        $.ajax({
+            url: '/Home/Reseed',
+            type: 'GET'
+        }).done(function (result) {
+            if (result == "success") {
+                ReloadPeopleGrid();
+            }
+            else
+            {
+                alert('Reseed failed!');
             }
         });
     });
@@ -51,6 +73,15 @@
 
 function PersonAdded() {
     alert('person added');
+}
+
+function ReloadPeopleGrid() {
+    $.ajax({
+        url: '/Home/PeopleGrid',
+        type: 'GET'
+    }).done(function (data) {
+        $('#PeopleGridDiv').html(data);
+    });
 }
 
 function ProcessDelete() {
