@@ -65,7 +65,25 @@ namespace HealthCatalystPeopleSearch.Controllers
         public FileContentResult GetPhoto(int id)
         {
             var image = _manager.GetPhoto(id);
-            return image != null && id > 0 ? new FileContentResult(image, "image/png") : null;
+            if(image != null)
+            {
+                return new FileContentResult(image, "image/png");
+            }
+            else
+            {
+                byte[] buffer;
+                string fileName = Server.MapPath(Url.Content("~/Content/Images/NoImageAvailable.jpg"));
+                using (FileStream filestream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
+                {
+                    using (BinaryReader reader = new BinaryReader(filestream))
+                    {
+                        long totalBytes = new FileInfo(fileName).Length;
+
+                        buffer = reader.ReadBytes((Int32)totalBytes);
+                    }
+                }
+                return new FileContentResult(buffer, "image/jpg");
+            }
         }
 
         [HttpDelete]

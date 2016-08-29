@@ -74,7 +74,16 @@
 function PersonAdded() {
     ProcessDelete();
     $('#formAddPerson')[0].reset();
+    RefreshTypeAhead();
     alert('person added');
+}
+
+function RefreshTypeAhead() {
+    $('input.search-input').typeahead('destroy');
+    $('input.search-input').typeahead({
+        prefetch: 'GetNames',
+        limit: 500
+    });
 }
 
 function ReloadPeopleGrid() {
@@ -98,6 +107,7 @@ function ProcessDelete() {
                 data: { PersonId: personId }
             }).done(function (data) {
                 $('#PeopleGridDiv').html(data);
+                RefreshTypeAhead()
                 ProcessDelete();
             });
         }
