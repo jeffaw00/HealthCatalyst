@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace HealthCatalystPeopleSearch.Models
 {
@@ -21,9 +22,8 @@ namespace HealthCatalystPeopleSearch.Models
         public string State { get; set; }
         public string Zip { get; set; }
         public int Age { get; set; }
-        public string PicName { get; set; }
-        public string PicLocation { get; set; }
         public string Interests { get; set; }
+        public byte[] Photo { get; set; }
     }
 
     public class PersonContext : DbContext

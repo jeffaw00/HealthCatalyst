@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using HealthCatalystPeopleSearch.Services;
@@ -33,10 +34,38 @@ namespace HealthCatalystPeopleSearch.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult AddPerson(Models.Person person)
+        public PartialViewResult AddPerson(Models.Person person, HttpPostedFileBase file1)
         {
+            if(file1 != null)
+            {
+                string filename = string.Empty;
+                byte[] bytes;
+                int bytesToRead;
+                int numBytesRead;
+                filename = Path.GetFileName(file1.FileName);
+                bytes = new byte[file1.ContentLength];
+                bytesToRead = (int)file1.ContentLength;
+                numBytesRead = 0;
+
+                while(bytesToRead > 0)
+                {
+                    int n = file1.InputStream.Read(bytes, numBytesRead, bytesToRead);
+                    if (n == 0)
+                        break;
+                    numBytesRead += n;
+                    bytesToRead -= n;
+                }
+
+                person.Photo = bytes;
+            }
             _manager.AddPerson(person);
             return PartialView("PeopleGrid", _manager.GetAllPeople());
+        }
+
+        public FileContentResult GetPhoto(int id)
+        {
+            var image = _manager.GetPhoto(id);
+            return image != null && id > 0 ? new FileContentResult(image, "image/png") : null;
         }
 
         [HttpDelete]

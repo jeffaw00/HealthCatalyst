@@ -182,6 +182,22 @@
     <Compile Include="Migrations\201608290054117_Requires.Designer.cs">
       <DependentUpon>201608290054117_Requires.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608290339171_AddPhoto.cs" />
+    <Compile Include="Migrations\201608290339171_AddPhoto.Designer.cs">
+      <DependentUpon>201608290339171_AddPhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608290352045_changetohttppostedfile.cs" />
+    <Compile Include="Migrations\201608290352045_changetohttppostedfile.Designer.cs">
+      <DependentUpon>201608290352045_changetohttppostedfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608290354152_backtobyte.cs" />
+    <Compile Include="Migrations\201608290354152_backtobyte.Designer.cs">
+      <DependentUpon>201608290354152_backtobyte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608290355102_backtobyteforreal.cs" />
+    <Compile Include="Migrations\201608290355102_backtobyteforreal.Designer.cs">
+      <DependentUpon>201608290355102_backtobyteforreal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Home.cs" />
     <Compile Include="Models\Person.cs" />
@@ -260,6 +276,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608290054117_Requires.resx">
       <DependentUpon>201608290054117_Requires.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608290339171_AddPhoto.resx">
+      <DependentUpon>201608290339171_AddPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608290352045_changetohttppostedfile.resx">
+      <DependentUpon>201608290352045_changetohttppostedfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608290354152_backtobyte.resx">
+      <DependentUpon>201608290354152_backtobyte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608290355102_backtobyteforreal.resx">
+      <DependentUpon>201608290355102_backtobyteforreal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

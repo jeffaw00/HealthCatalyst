@@ -247,6 +247,10 @@ footer {
     display: block;
 }
 
+.person-image {
+    max-width: 200px;
+}
+
 
 @media(min-width:768px) {
     .navbar-default {

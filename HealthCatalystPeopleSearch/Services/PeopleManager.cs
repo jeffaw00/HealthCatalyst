@@ -74,6 +74,19 @@ namespace HealthCatalystPeopleSearch.Services
             return person;
         }
 
+        public byte[] GetPhoto(int PersonId)
+        {
+            if (PersonId > 0)
+            {
+                using (var context = new PersonContext())
+                {
+                    return context.Persons.Find(PersonId).Photo;
+                }
+            }
+            else
+                return null;
+        }
+
         public Person AddPerson(Person person)
         {
             using (var context = new PersonContext())

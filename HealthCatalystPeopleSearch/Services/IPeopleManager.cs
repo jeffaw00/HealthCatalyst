@@ -22,5 +22,7 @@ namespace HealthCatalystPeopleSearch.Services
         Home GetHome();
 
         void Reseed();
+
+        byte[] GetPhoto(int PersonId);
     }
 }

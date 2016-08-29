@@ -32,20 +32,11 @@
             <td>@Html.DisplayFor(modelItem => Model.Age)</td>
         </tr>
         <tr>
-            <td>@Html.DisplayNameFor(model => model.PicName)</td>
-            <td>@Html.DisplayFor(modelItem => Model.PicName)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.PicLocation)</td>
-            <td>@Html.DisplayFor(modelItem => Model.PicLocation)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.PicLocation)</td>
-            <td>@Html.DisplayFor(modelItem => Model.PicLocation)</td>
-        </tr>
-        <tr>
             <td>@Html.DisplayNameFor(model => model.Interests)</td>
             <td>@Html.DisplayFor(modelItem => Model.Interests)</td>
+        </tr>
+        <tr>
+            <td colspan="2"><img class="person-image" src="@Url.Action("GetPhoto", "Home", new { id = @Model.PersonId })" alt="@Model.FirstName + ' ' + @Model.LastName" title="@Model.FirstName + ' ' + @Model.LastName" /></td>
         </tr>
     </table>
     <br />
