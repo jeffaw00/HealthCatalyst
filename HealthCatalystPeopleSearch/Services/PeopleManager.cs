@@ -11,6 +11,15 @@ namespace HealthCatalystPeopleSearch.Services
 {
     public class PeopleManager : IPeopleManager
     {
+        public Home GetHome()
+        {
+            Home home = new Home();
+
+            home.persons = GetAllPeople();
+
+            return home;
+        }
+
         public Persons GetAllPeople()
         {
             Persons people = new Persons();

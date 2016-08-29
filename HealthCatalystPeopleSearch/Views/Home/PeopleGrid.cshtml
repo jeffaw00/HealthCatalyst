@@ -31,9 +31,10 @@
                     <td>@item.Interests</td>
                     <td>@item.PicLocation</td>
                     <td>
-                        @{using (Html.BeginForm("DeletePerson", "Home", new { PersonId = @item.PersonId }))
+                        <button name="DeletePerson" type="button" class="btn btn-default" data-id="@item.PersonId">Delete</button>
+                        @*@{using (Ajax.BeginForm("DeletePerson", "Home", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "PeopleGridDiv", OnComplete = "PersonDeleted" }, new { PersonId = @item.PersonId }))
                         { <input class="delete-recolor" type="submit" name="DeletePerson" value="Delete" /> } 
-                        }
+                        }*@
                     </td>
                 </tr>
             }

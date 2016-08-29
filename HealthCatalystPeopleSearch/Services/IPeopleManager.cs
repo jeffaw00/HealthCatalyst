@@ -18,5 +18,7 @@ namespace HealthCatalystPeopleSearch.Services
         Person AddPerson(Person person);
 
         void DeletePerson(int PersonId);
+
+        Home GetHome();
     }
 }

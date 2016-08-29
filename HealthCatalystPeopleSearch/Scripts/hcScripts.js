@@ -45,9 +45,28 @@
     });
 
     $(document).ready(function () {
-        $("input[name='DeletePerson']").click(function () {
-            return confirm('Delete this person?');
-        });
+        ProcessDelete();
     });
-
 })(jQuery);
+
+function PersonAdded() {
+    alert('person added');
+}
+
+function ProcessDelete() {
+    $("button[name='DeletePerson']").click(function () {
+        var yesdeleteme = confirm('Delete this person?');
+        if (yesdeleteme) {
+            var personId = $(this).attr("data-id");
+            $.ajax({
+                url: '/Home/DeletePerson',
+                type: 'DELETE',
+                cache: false,
+                data: { PersonId: personId }
+            }).done(function (data) {
+                $('#PeopleGridDiv').html(data);
+                ProcessDelete();
+            });
+        }
+    });
+}

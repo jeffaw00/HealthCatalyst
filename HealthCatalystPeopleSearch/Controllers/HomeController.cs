@@ -13,10 +13,10 @@ namespace HealthCatalystPeopleSearch.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(_manager.GetHome());
         }
 
-        public ActionResult PeopleGrid()
+        public PartialViewResult PeopleGrid()
         {
             return PartialView(_manager.GetAllPeople());
         }
@@ -31,16 +31,18 @@ namespace HealthCatalystPeopleSearch.Controllers
             return PartialView(_manager.GetPerson(name));
         }
 
-        public ActionResult AddPerson(Models.Person person)
+        [HttpPost]
+        public PartialViewResult AddPerson(Models.Person person)
         {
             _manager.AddPerson(person);
-            return RedirectToAction("Index");
+            return PartialView("PeopleGrid", _manager.GetAllPeople());
         }
 
-        public ActionResult DeletePerson(int PersonId)
+        [HttpDelete]
+        public PartialViewResult DeletePerson(int PersonId)
         {
             _manager.DeletePerson(PersonId);
-            return RedirectToAction("Index");
+            return PartialView("PeopleGrid", _manager.GetAllPeople());
         }
     }
 }
