@@ -26,7 +26,7 @@ namespace HealthCatalystPeopleSearch.Controllers
             return Json(_manager.GetNames(), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult LoadPerson(string name)
+        public PartialViewResult LoadPerson(string name)
         {
             System.Threading.Thread.Sleep(3000);
             return PartialView(_manager.GetPerson(name));

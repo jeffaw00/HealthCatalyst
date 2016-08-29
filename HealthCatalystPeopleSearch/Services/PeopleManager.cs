@@ -53,15 +53,22 @@ namespace HealthCatalystPeopleSearch.Services
         {
             Person person = new Person();
 
-            if (name != null)
+            try
             {
-                using (var context = new PersonContext())
+                if (name != null)
                 {
-                    var query = from b in context.Persons
-                                where b.FirstName + " " + b.LastName == name
-                                select b;
-                    person = (Person)query.First();
+                    using (var context = new PersonContext())
+                    {
+                        var query = from b in context.Persons
+                                    where b.FirstName + " " + b.LastName == name
+                                    select b;
+                        person = (Person)query.First();
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                // nothing to do here for now, normally would log to db
             }
 
             return person;
