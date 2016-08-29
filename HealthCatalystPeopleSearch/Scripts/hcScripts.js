@@ -57,6 +57,7 @@
             type: 'GET'
         }).done(function (result) {
             if (result == "success") {
+                RefreshTypeAhead();
                 ReloadPeopleGrid();
             }
             else
